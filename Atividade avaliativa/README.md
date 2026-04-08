@@ -1,3 +1,5 @@
+# =================================================================================================================================
+
 # Atividade Avaliativa - Uso de GitHub Actions para execução de Testes Automatizados (2,0)
 O objetivo desta atividade avaliativa será:
 
@@ -7,51 +9,41 @@ Seu grupo deverá desenvolver um CRUD (CREATE READ UPDATE DELETE) para gerenciar
 A partir disto você irá desenvolver testes funcionais para cada um das operações disponíveis no CRUD criado, para desenvolver os testes utilize a metodologia BDD (Behavior-Driven Development), tenham atenção para criar cenários quanto forem necessários para cada função.
 
 Configure seu repositório para conter os arquivos necessários para ativar uma esteira automatizada que irá validar pull request abertos de qualquer branch para main. A esterira deverá validar se há pelo menos 75% de cobertura de testes em cada PR aberto.
-Grupos Formados:
+# =================================================================================================================================
+Segundo passo:
 
-Grupo 01:
+Instruções
+TEXTO BASE
+Você faz parte de uma equipe responsável pelo desenvolvimento de um sistema de marketplace semelhante a Amazon.
 
-Kauã Ribeiro Mota
-João Victor Xavier Silva
-José Guilherme Avello Peres
+O sistema possui:
 
-Grupo 02:
+múltiplos vendedores
+controle de estoque distribuído
+cálculo de frete
+pagamento via gateway externo
+regras complexas de negócio 
+Recentemente, o sistema apresentou:
 
-Clara Castro Santos
-Marcelo Negrão Mascarenhas Filho
-Luisa Castro
+falhas na finalização de pedidos
+inconsistência de estoque
+pedidos duplicados 
+A liderança técnica decidiu:
+“A partir de agora, toda funcionalidade deve ser definida primeiro por testes.”
 
-Grupo 03:
+CONTEXTO DO PROBLEMA
 
-Arthur Goulart Damacena Monteiro
-Hiago Rodrigues
-Joel Cordeiro Araújo
+Nova funcionalidade:
+Reserva de estoque durante checkout 
 
-Grupo 04:
+Regras:
 
-Vito Andrade Ferreira
+produto deve ter estoque disponível
+reserva expira em 5 minutos
+não pode reservar mais que o disponível
+concorrência entre usuários
+ESCREVER TESTES (PSEUDOCÓDIGO)
+Você deve criar:
 
-Grupo 05:
-
-Victor Emanuel Rodrigues Mota Gomes
-
-Grupo 06:
-
-Davi Melo Rosa
-Emanuel Borges Moraes
-Gabriel Vinicius Moraes Oliveira
-
-Grupo 07:
-
-Guilherme de S. Abreu
-Guilherme Leão Teles
-Samuel Pereira Dias
-
-Grupo 08:
-
-Antonio Alves de Araújo Junior
-Murillo Magno de Sousa Reis
-
-Grupo 09:
-
-Otávio Ribeiro dos Santos Araujo
+3 cenários de sucesso
+3 cenários de falha
