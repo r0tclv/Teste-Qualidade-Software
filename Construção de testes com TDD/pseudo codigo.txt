@@ -1,0 +1,77 @@
+# Cenário 1: Produto com estoque suficiente
+def test_reserva_sucesso_estoque_suficiente():
+    produto = Produto(estoque=10)
+    usuario = Usuario(id=1)
+    
+    reserva = reservar_estoque(usuario, produto, quantidade=5)
+    
+    assert reserva.ativo == True
+    assert produto.estoque == 5  # estoque reduzido
+    assert reserva.expira_em <= datetime.now() + timedelta(minutes=5)
+
+# Cenário 2: Reserva múltiplos produtos simultaneamente
+def test_reserva_sucesso_multiplos_produtos():
+    produto1 = Produto(estoque=10)
+    produto2 = Produto(estoque=20)
+    usuario = Usuario(id=2)
+    
+    reserva1 = reservar_estoque(usuario, produto1, quantidade=3)
+    reserva2 = reservar_estoque(usuario, produto2, quantidade=10)
+    
+    assert reserva1.ativo == True
+    assert reserva2.ativo == True
+    assert produto1.estoque == 7
+    assert produto2.estoque == 10
+
+# Cenário 3: Reserva concorrente sem conflito
+def test_reserva_sucesso_concorrencia():
+    produto = Produto(estoque=10)
+    usuario1 = Usuario(id=3)
+    usuario2 = Usuario(id=4)
+    
+    reserva1 = reservar_estoque(usuario1, produto, quantidade=4)
+    reserva2 = reservar_estoque(usuario2, produto, quantidade=5)
+    
+    assert reserva1.ativo == True
+    assert reserva2.ativo == True
+    assert produto.estoque == 1
+
+# Cenário 1: Produto sem estoque suficiente
+def test_reserva_falha_estoque_insuficiente():
+    produto = Produto(estoque=3)
+    usuario = Usuario(id=5)
+    
+    try:
+        reservar_estoque(usuario, produto, quantidade=5)
+    except EstoqueInsuficienteError:
+        assert True
+    else:
+        assert False
+
+# Cenário 2: Reserva expira
+def test_reserva_falha_expiracao():
+    produto = Produto(estoque=5)
+    usuario = Usuario(id=6)
+    
+    reserva = reservar_estoque(usuario, produto, quantidade=3)
+    
+    # Simula espera de 6 minutos
+    time.sleep(6 * 60)
+    
+    assert reserva.ativo == False
+    assert produto.estoque == 5  # estoque volta ao original
+
+# Cenário 3: Tentativa de reserva concorrente maior que o disponível
+def test_reserva_falha_concorrencia_excedida():
+    produto = Produto(estoque=5)
+    usuario1 = Usuario(id=7)
+    usuario2 = Usuario(id=8)
+    
+    reservar_estoque(usuario1, produto, quantidade=3)
+    
+    try:
+        reservar_estoque(usuario2, produto, quantidade=3)
+    except EstoqueInsuficienteError:
+        assert True
+    else:
+        assert False

@@ -9,41 +9,26 @@ Seu grupo deverá desenvolver um CRUD (CREATE READ UPDATE DELETE) para gerenciar
 A partir disto você irá desenvolver testes funcionais para cada um das operações disponíveis no CRUD criado, para desenvolver os testes utilize a metodologia BDD (Behavior-Driven Development), tenham atenção para criar cenários quanto forem necessários para cada função.
 
 Configure seu repositório para conter os arquivos necessários para ativar uma esteira automatizada que irá validar pull request abertos de qualquer branch para main. A esterira deverá validar se há pelo menos 75% de cobertura de testes em cada PR aberto.
-# =================================================================================================================================
-Segundo passo:
+
+
+
+
+
+
+# =========================================================================================
 
 Instruções
-TEXTO BASE
-Você faz parte de uma equipe responsável pelo desenvolvimento de um sistema de marketplace semelhante a Amazon.
+Nessa atividade você irá evoluir sua aplicação construída na atividade avaliativa com a capacidade de gerenciar disciplinas de uma instituição de ensino. Entretanto, antes da atividade principal, você precisará evoluir sua aplicação.
 
-O sistema possui:
+Comece transformando sua aplicação em uma API que faz uso do Flask, todas as disciplinas devem ser gravadas em um banco de dados Postgres rodando um container Docker. 
 
-múltiplos vendedores
-controle de estoque distribuído
-cálculo de frete
-pagamento via gateway externo
-regras complexas de negócio 
-Recentemente, o sistema apresentou:
+Feito isso você deverá criar um novo CRUD para sua aplicação, dessa vez para o gerenciamento de alunos. Cada aluno deve conter os seguintes dados, nome, data de nascimento, e-mail, CPF, telefone sexo, naturalidade. Mas, ao invés de iniciar a implementação das regras de negócio você deverá começar pela construção de testes usando a estratégia TDD. 
 
-falhas na finalização de pedidos
-inconsistência de estoque
-pedidos duplicados 
-A liderança técnica decidiu:
-“A partir de agora, toda funcionalidade deve ser definida primeiro por testes.”
+Sua entrega deverá ser um PR (Pull Request) aberto em seu repositório com dois commits, o primeiro contendo os testes desenvolvidos e, o segundo commit com a implementação das regras de negócio para cada um das funções do CRUD.
 
-CONTEXTO DO PROBLEMA
+Para ajuda-lo. Algumas possíveis regras de negócio seriam:
 
-Nova funcionalidade:
-Reserva de estoque durante checkout 
-
-Regras:
-
-produto deve ter estoque disponível
-reserva expira em 5 minutos
-não pode reservar mais que o disponível
-concorrência entre usuários
-ESCREVER TESTES (PSEUDOCÓDIGO)
-Você deve criar:
-
-3 cenários de sucesso
-3 cenários de falha
+Um aluno deve ser sempre maior de idade
+Deve existir apenas um aluno por CPF, E-mail ou Telefone
+Apenas números nacionais são aceitos
+O cadastro de alunos de alunos fora de capitais devem ser vetados.

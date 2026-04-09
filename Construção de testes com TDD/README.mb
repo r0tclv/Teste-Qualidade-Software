@@ -1,0 +1,35 @@
+Instruções
+TEXTO BASE
+Você faz parte de uma equipe responsável pelo desenvolvimento de um sistema de marketplace semelhante a Amazon.
+
+O sistema possui:
+
+múltiplos vendedores
+controle de estoque distribuído
+cálculo de frete
+pagamento via gateway externo
+regras complexas de negócio 
+Recentemente, o sistema apresentou:
+
+falhas na finalização de pedidos
+inconsistência de estoque
+pedidos duplicados 
+A liderança técnica decidiu:
+“A partir de agora, toda funcionalidade deve ser definida primeiro por testes.”
+
+CONTEXTO DO PROBLEMA
+
+Nova funcionalidade:
+Reserva de estoque durante checkout 
+
+Regras:
+
+produto deve ter estoque disponível
+reserva expira em 5 minutos
+não pode reservar mais que o disponível
+concorrência entre usuários
+ESCREVER TESTES (PSEUDOCÓDIGO)
+Você deve criar:
+
+3 cenários de sucesso
+3 cenários de falha
